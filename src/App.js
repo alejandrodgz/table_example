@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//import Table from "./table"
+import Table2 from "./table2";
+import HeaderApp from "./header";
+import "./header.css"
+import Behind from "./behind";
+import Contact from "./Contact";
+import About from "./About";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App(){
+
+    let component1
+    switch (window.location.pathname) {
+
+        case "/":
+            component1 = <Table2 />            
+            break;
+        case "/Sources":
+            component1 = <Table2 />            
+            break;
+        
+        case "/About":
+            component1 = <About />            
+            break;
+                
+        case "/Contact":
+            component1 = <Contact />            
+            break;
+
+        default:
+            break;
+    }
+    
+    return(<>
+    <HeaderApp />
+    {component1}
+    <Behind />
+    </>)
 }
-
-export default App;
